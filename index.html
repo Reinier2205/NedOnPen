@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nedbank On Pension Newsletter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #008542;
+            --secondary-color: #f0f8f4;
+            --text-color: #333;
+            --light-text: #666;
+            --border-color: #ddd;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--header-height);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-text);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .user-actions button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .user-actions button:hover {
+            color: var(--primary-color);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background-color: white;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+
+        .nav-tab {
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--light-text);
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .nav-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .nav-tab:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .featured-article {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 25px;
+        }
+
+        .featured-content h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .featured-content p {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .featured-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .article-content p {
+            font-size: 16px;
+            color: var(--light-text);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 20px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        /* Article Detail View */
+        .article-detail {
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .article-detail.active {
+            display: block;
+        }
+
+        .article-detail h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .article-detail .article-image {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 25px;
+        }
+
+        .article-detail-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .article-detail-content p {
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #d0e8dc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-column p, .footer-column li {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin: 0 0 15px 0;
+            }
+
+            .featured-article {
+                flex-direction: column;
+            }
+
+            .featured-image {
+                height: 200px;
+            }
+
+            .featured-content h2 {
+                font-size: 22px;
+            }
+
+            .article-detail h2 {
+                font-size: 24px;
+            }
+
+            .article-detail .article-image {
+                height: 250px;
+            }
+        }
+
+        /* Accessibility for Baby Boomers */
+        .accessibility-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            border-radius: 50px;
+            box-shadow: var(--card-shadow);
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 50;
+        }
+
+        .accessibility-controls button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .accessibility-controls button:hover {
+            background-color: #d0e8dc;
+        }
+
+        body.large-text {
+            font-size: 120%;
+        }
+
+        body.high-contrast {
+            filter: contrast(1.5);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 200;
+            max-width: 300px;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-newspaper"></i>
+                <h1>Nedbank On Pension</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search articles..." id="search-input">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="user-actions">
+                <button id="font-size-toggle" title="Increase Text Size"><i class="fas fa-text-height"></i></button>
+                <button id="contrast-toggle" title="High Contrast"><i class="fas fa-adjust"></i></button>
+                <button id="bookmark-btn" title="Bookmarks"><i class="fas fa-bookmark"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+        <div class="nav-tab active" data-category="all">All Articles</div>
+        <div class="nav-tab" data-category="featured">Featured</div>
+        <div class="nav-tab" data-category="history">History</div>
+        <div class="nav-tab" data-category="announcements">Announcements</div>
+        <div class="nav-tab" data-category="letters">Letters</div>
+        <div class="nav-tab" data-category="lifestyle">Lifestyle</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Featured Article -->
+        <div class="featured-article" data-category="featured">
+            <img src="https://images.unsplash.com/photo-1588421357574-87938a86fa28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ewart Scott Grogan" class="featured-image">
+            <div class="featured-content">
+                <h2>He walked from Cape to Cairo</h2>
+                <p>The astounding journey of Ewart Scott Grogan, the first person to walk the length of Africa from Cape Town to Cairo.</p>
+                <div class="featured-meta">
+                    <span>September 2025 | Issue 107</span>
+                    <span>5 min read</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Grid -->
+        <div class="section-title">
+            <i class="fas fa-newspaper"></i>
+            <span>All Articles</span>
+        </div>
+        <div class="article-grid" id="articles-container">
+            <!-- Articles will be dynamically loaded here -->
+        </div>
+
+        <!-- Article Detail View (Hidden by default) -->
+        <div class="article-detail" id="article-detail">
+            <button class="back-button" id="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Articles
+            </button>
+            <h2 id="detail-title"></h2>
+            <img id="detail-image" src="" alt="" class="article-image">
+            <div class="article-detail-content" id="detail-content"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>On Pension is a newsletter published four times a year for Nedgroup Pensioners, keeping them informed on important contacts and services.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Newsletter Archive</a></li>
+                    <li><a href="#">Nedbank Heritage Portal</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Accessibility Options</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Important Information</h3>
+                <p>From December 2025, On Pension will only be available electronically. Please ensure we have your correct email address.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>Email: onpension@mweb.co.za</p>
+                <p>Editor: John Sparkman</p>
+                <p>Circulation: 5,700 since 1999</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Nedbank On Pension Newsletter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls">
+        <button id="increase-font" title="Increase Text Size"><i class="fas fa-plus"></i></button>
+        <button id="decrease-font" title="Decrease Text Size"><i class="fas fa-minus"></i></button>
+        <button id="high-contrast" title="High Contrast"><i class="fas fa-adjust"></i></button>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notification-text"></span>
+        <button class="notification-close" id="notification-close">&times;</button>
+    </div>
+
+    <script>
+        // Article data
+        const articles = [
+            {
+                id: 1,
+                title: "He walked from Cape to Cairo",
+                excerpt: "The astounding journey of Ewart Scott Grogan, the first person to walk the length of Africa from Cape Town to Cairo.",
+                content: `<p>Cecil John Rhodes had a dream of constructing a railway from Cape to Cairo, but he was unsuccessful. However an even more astounding achievement was by Ewart Scott Grogan, (Born 12-12-1874 London – Died 16-8-1967 Cape Town) an English explorer, politician and entrepreneur who was the first person in recorded history to walk the length of Africa, from Cape Town to Cairo. Ewart Grogan was educated at Winchester College and Jesus College, Cambridge, which he left without taking a degree. He was expelled from both school and university. Grogan spent some time at the Slade School of Art. While up at Cambridge, he fell in love with Gertrude Watt, the heiress and direct descendant of James Watt the Scottish inventor of the Steam engine, the sister of a classmate, Edward James Quadrant Watt, but her stepfather disapproved of the match. Grogan came from a respectable family, but he had achieved little in his life to recommend it. He proposed becoming the first man to make the Cape-to-Cairo journey; the stepfather agreed this would be a suitable test of his character and seriousness as regards his suit.</p>
+                <p>Grogan set off from Cape Town in 1898 and walked through East Africa, overcoming numerous challenges including disease, hostile tribes, and dangerous wildlife. He arrived in Cairo in 1900, having covered approximately 10,000 miles on foot. His remarkable feat earned him the nickname "Cape to Cairo Grogan" and established him as one of the great explorers of Africa.</p>
+                <p>After his journey, Grogan returned to England and married Gertrude Watt. They settled in East Africa where he became a prominent businessman and politician. He served in the Legislative Council of British East Africa and was involved in various development projects including railways, agriculture, and urban planning. Grogan's adventurous spirit and entrepreneurial drive left a lasting legacy in East Africa.</p>
+                <img src="https://images.unsplash.com/photo-1588421357574-87938a86fa28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ewart Scott Grogan" style="width: 100%; margin: 20px 0;">
+                <p>Grogan's journey was meticulously documented in his book "From the Cape to Cairo," which remains a valuable historical account of Africa at the turn of the 20th century. His route through the continent took him through territories that would later become South Africa, Zimbabwe, Zambia, Tanzania, Uganda, Sudan, and Egypt. Along the way, he encountered diverse cultures, landscapes, and wildlife that few Europeans had ever seen.</p>
+                <p>Despite facing malaria, dysentery, and near-fatal encounters with lions and crocodiles, Grogan persevered. His determination and resilience were remarkable, especially considering the limited resources and medical knowledge available at the time. His journey remains one of the most impressive feats of exploration in African history.</p>
+                <p>Later in life, Grogan continued to contribute to the development of East Africa. He founded the town of Taveta in Kenya and established several businesses including a sawmill and a transport company. He also served in World War I and was involved in various conservation efforts. Grogan passed away in Cape Town in 1967, leaving behind a legacy as one of Africa's greatest adventurers.</p>`,
+                category: "history",
+                date: "September 2025",
+                readTime: "5 min read",
+                image: "https://images.unsplash.com/photo-1588421357574-87938a86fa28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 2,
+                title: "Nedbank Heritage Portal Launch",
+                excerpt: "We're excited to announce the launch of our new Nedbank Heritage Portal, preserving our rich history for future generations.",
+                content: `<p>Nedbank is proud to announce the launch of our new Heritage Portal, a digital archive that preserves and showcases the rich history of Nedbank and its predecessor institutions. This comprehensive online resource will be invaluable for researchers, historians, and anyone interested in South Africa's financial history.</p>
+                <p>The Heritage Portal features digitized documents, photographs, annual reports, and other historical materials dating back to the 19th century. Visitors can explore the evolution of Nedbank through different eras, from its early days as the Netherlands Bank of South Africa to its current position as one of Africa's largest financial institutions.</p>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nedbank Heritage Portal" style="width: 100%; margin: 20px 0;">
+                <p>Key features of the Heritage Portal include:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>Interactive timeline of Nedbank's history</li>
+                    <li>Biographies of key figures in Nedbank's development</li>
+                    <li>Digitized historical documents and photographs</li>
+                    <li>Virtual exhibitions on significant milestones</li>
+                    <li>Educational resources for schools and universities</li>
+                </ul>
+                <p>The portal was developed in collaboration with historians and archivists to ensure accuracy and comprehensiveness. It represents a significant investment in preserving our corporate heritage and making it accessible to a wider audience.</p>
+                <p>"Our history is an important part of our identity," said Thoko Mokgosi-Mwantembe, Head of Corporate Affairs at Nedbank. "The Heritage Portal allows us to share our story with current and future generations, highlighting our role in South Africa's economic development over more than a century."</p>
+                <p>The Heritage Portal is now available at heritage.nedbank.co.za and will be continuously updated with new materials and features. We invite all pensioners to explore this valuable resource and reconnect with Nedbank's rich heritage.</p>`,
+                category: "announcements",
+                date: "September 2025",
+                readTime: "4 min read",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 3,
+                title: "Letters from Our Readers",
+                excerpt: "We love hearing from our pensioners! Here are some of your recent letters and our responses.",
+                content: `<p>Dear Editor,</p>
+                <p>I wanted to express my gratitude for the recent article on retirement planning. As someone who retired five years ago, I found the advice on managing finances in retirement particularly helpful. The section on healthcare costs was especially relevant, as I've been navigating the complexities of medical aid as a pensioner.</p>
+                <p>I would like to suggest a future article on downsizing - the emotional and practical aspects of moving to a smaller home after retirement. This is something many of my friends and I are considering, and we would appreciate guidance on making this transition smoothly.</p>
+                <p>Thank you for the excellent work you do with On Pension. It remains one of the highlights of my quarter.</p>
+                <p>Sincerely,<br>Margaret Thompson<br>Johannesburg</p>
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+                <p>Dear Margaret,</p>
+                <p>Thank you for your kind words and valuable feedback. We're thrilled to hear that you found the retirement planning article helpful. Your suggestion for an article on downsizing is excellent, and we'll definitely consider it for a future edition.</p>
+                <p>Downsizing is indeed a significant decision that many retirees face, involving both emotional and practical considerations. We appreciate you highlighting this important topic.</p>
+                <p>We're glad that On Pension continues to be a valuable resource for you. Our goal is to provide relevant and useful information to our pensioners, and feedback like yours helps us achieve that.</p>
+                <p>Best regards,<br>John Sparkman<br>Editor</p>
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+                <p>Dear Editor,</p>
+                <p>I'm writing to express my concern about the upcoming change to electronic-only distribution of On Pension. While I understand the environmental and cost-saving benefits, I worry about pensioners who may not have reliable internet access or who are not comfortable with digital technology.</p>
+                <p>Many of my peers in our retirement village struggle with basic email, let alone navigating websites or downloading PDFs. I fear they will miss out on this valuable resource.</p>
+                <p>Is there any way Nedbank could provide assistance to help these pensioners transition to digital access? Perhaps training sessions or simplified instructions?</p>
+                <p>Thank you for your consideration.</p>
+                <p>Regards,<br>Robert Davies<br>Durban</p>
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+                <p>Dear Robert,</p>
+                <p>Thank you for raising this important concern. We recognize that the transition to digital-only distribution may present challenges for some pensioners, and we're committed to ensuring everyone can continue to access On Pension.</p>
+                <p>We're developing a comprehensive support program that includes:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>Simple step-by-step guides for accessing the newsletter online</li>
+                    <li>Telephone support for pensioners who need assistance</li>
+                    <li>Partnerships with retirement villages to provide in-person training sessions</li>
+                    <li>Options to receive printed copies through local Nedbank branches for those who truly cannot access digital versions</li>
+                </ul>
+                <p>We appreciate your feedback and will continue to explore ways to make this transition as smooth as possible for all our pensioners.</p>
+                <p>Best regards,<br>John Sparkman<br>Editor</p>`,
+                category: "letters",
+                date: "September 2025",
+                readTime: "6 min read",
+                image: "https://images.unsplash.com/photo-1588421357574-87938a86fa28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 4,
+                title: "Healthy Aging: Tips for Staying Active",
+                excerpt: "Discover practical advice for maintaining physical and mental health as you age, with tips from healthcare professionals.",
+                content: `<p>As we age, maintaining our health becomes increasingly important. Regular physical activity, a balanced diet, and mental stimulation are key components of healthy aging. We've consulted with healthcare professionals to bring you these practical tips for staying active and healthy in your retirement years.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Physical Activity</h3>
+                <p>Regular exercise is crucial for maintaining mobility, strength, and overall health. Aim for at least 150 minutes of moderate-intensity aerobic activity per week, such as brisk walking, swimming, or cycling. Additionally, incorporate strength training exercises at least twice a week to maintain muscle mass and bone density.</p>
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Seniors exercising" style="width: 100%; margin: 20px 0;">
+                <p>Low-impact activities like yoga, tai chi, and water aerobics are excellent options for those with joint concerns. These activities improve flexibility, balance, and strength without putting excessive stress on the body.</p>
+                <p>Remember to consult with your healthcare provider before starting any new exercise program, especially if you have pre-existing health conditions.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Nutrition</h3>
+                <p>A balanced diet is essential for healthy aging. Focus on consuming a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats. As we age, our nutritional needs change, so it's important to pay attention to specific nutrients:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Calcium and Vitamin D:</strong> Essential for bone health. Include dairy products, leafy greens, and fortified foods in your diet.</li>
+                    <li><strong>Fiber:</strong> Important for digestive health. Found in fruits, vegetables, whole grains, and legumes.</li>
+                    <li><strong>Omega-3 fatty acids:</strong> Support brain and heart health. Found in fatty fish, walnuts, and flaxseeds.</li>
+                    <li><strong>Vitamin B12:</strong> Crucial for nerve function and blood cell formation. Found in animal products or fortified foods.</li>
+                </ul>
+                <p>Stay hydrated by drinking plenty of water throughout the day. Limit processed foods, excessive salt, and added sugars.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Mental Stimulation</h3>
+                <p>Keeping your mind active is just as important as physical activity. Engage in activities that challenge your brain, such as reading, puzzles, learning a new skill, or playing musical instruments. Social interaction also provides mental stimulation and helps prevent cognitive decline.</p>
+                <p>Consider joining clubs, taking classes, or volunteering to stay socially engaged. These activities not only stimulate your mind but also provide a sense of purpose and connection.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Preventive Healthcare</h3>
+                <p>Regular check-ups and screenings are essential for early detection and prevention of health issues. Stay up-to-date with vaccinations, cancer screenings, and other preventive care recommended for your age group.</p>
+                <p>Manage chronic conditions by following your healthcare provider's recommendations and taking medications as prescribed. Keep track of your health metrics such as blood pressure, cholesterol levels, and blood sugar.</p>
+                <p>By incorporating these tips into your daily routine, you can maintain your health and vitality well into your retirement years. Remember, it's never too late to adopt healthier habits!</p>`,
+                category: "lifestyle",
+                date: "September 2025",
+                readTime: "7 min read",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 5,
+                title: "Nedbank Pensioner Benefits Update",
+                excerpt: "Important information about updates to pensioner benefits and services, including new digital offerings.",
+                content: `<p>We're pleased to announce several enhancements to our pensioner benefits and services, designed to make your banking experience more convenient and rewarding. These updates reflect our commitment to providing exceptional service to our valued pensioners.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Digital Banking Enhancements</h3>
+                <p>Our digital banking platform has been upgraded with new features specifically designed for pensioners:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Simplified Interface:</strong> A cleaner, more intuitive design with larger text and clearer navigation.</li>
+                    <li><strong>Voice Banking:</strong> New voice command functionality for hands-free banking.</li>
+                    <li><strong>Video Tutorials:</strong> Step-by-step guides for using digital banking features.</li>
+                    <li><strong>Secure Messaging:</strong> Direct communication with your relationship manager through the app.</li>
+                </ul>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Digital banking" style="width: 100%; margin: 20px 0;">
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Fee Waivers and Discounts</h3>
+                <p>We've expanded our fee waivers and discounts for pensioners:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>Monthly account fees waived for all pensioners over 60</li>
+                    <li>50% discount on safe custody services</li>
+                    <li>Free notarial services for wills and other legal documents</li>
+                    <li>Preferential rates on personal loans and vehicle finance</li>
+                    <li>Discounted travel insurance through Nedbank Travel</li>
+                </ul>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">New Financial Planning Services</h3>
+                <p>Our team of certified financial planners now offers specialized services for pensioners:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>Retirement income optimization strategies</li>
+                    <li>Estate planning and will drafting assistance</li>
+                    <li>Healthcare cost planning for long-term care</li>
+                    <li>Tax-efficient investment strategies</li>
+                    <li>Legacy planning for future generations</li>
+                </ul>
+                <p>These services are available at a discounted rate for Nedbank pensioners. To schedule a consultation, please contact your nearest branch or call our pensioner hotline at 0860 555 111.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Educational Workshops</h3>
+                <p>We're launching a series of free educational workshops on topics relevant to pensioners:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>Digital Banking Basics</li>
+                    <li>Understanding Medical Aid Options</li>
+                    <li>Downsizing Your Home</li>
+                    <li>Investing in Retirement</li>
+                    <li>Protecting Yourself from Financial Scams</li>
+                </ul>
+                <p>Workshops will be held at Nedbank branches nationwide and will also be available virtually. Registration is essential as space is limited. Visit our website or contact your branch for the schedule and registration details.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Important Reminders</h3>
+                <p>Please ensure that your contact information is up to date in our systems. This will ensure that you receive important notifications about your accounts and services. You can update your details through digital banking, at any branch, or by calling our customer service center.</p>
+                <p>Remember to review your account statements regularly and report any suspicious activity immediately. Our fraud detection systems are constantly monitoring for unusual transactions, but your vigilance is an important part of keeping your accounts secure.</p>
+                <p>We value your continued relationship with Nedbank and are committed to providing you with exceptional service and relevant financial solutions. Should you have any questions about these updates or require assistance with any of our services, please don't hesitate to contact us.</p>`,
+                category: "announcements",
+                date: "September 2025",
+                readTime: "6 min read",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 6,
+                title: "Travel Tips for Senior Adventurers",
+                excerpt: "Essential advice for safe and enjoyable travel in your retirement years, including destination recommendations and practical tips.",
+                content: `<p>Retirement is the perfect time to explore new destinations and embark on adventures you've always dreamed of. With careful planning and preparation, you can enjoy safe and fulfilling travel experiences well into your senior years. Here are some essential tips for making the most of your travels.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Planning Your Trip</h3>
+                <p>Thorough planning is the foundation of a successful trip. Start by researching destinations that align with your interests and physical capabilities. Consider factors such as climate, terrain, accessibility, and available medical facilities.</p>
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Senior travelers" style="width: 100%; margin: 20px 0;">
+                <p>Book accommodations that offer comfort and convenience. Look for hotels with elevators, accessible bathrooms, and amenities that cater to seniors. Consider staying in central locations to minimize transportation needs.</p>
+                <p>Travel insurance is essential for senior travelers. Ensure your policy covers pre-existing conditions, emergency medical evacuation, and trip cancellation. Carry copies of your insurance documents and emergency contact information with you at all times.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Health and Medication</h3>
+                <p>Consult with your healthcare provider before traveling, especially if you have chronic conditions. Discuss your travel plans and get necessary vaccinations and medications. Carry a sufficient supply of your medications, along with copies of prescriptions.</p>
+                <p>Keep medications in their original containers and pack them in your carry-on luggage. Consider bringing a basic medical kit with items like pain relievers, band-aids, antiseptic wipes, and any personal medical supplies you might need.</p>
+                <p>Stay hydrated and be mindful of food and water safety in certain destinations. Avoid tap water in areas where it's not safe to drink, and be cautious with street food. Pack snacks that are familiar to you in case you have difficulty finding suitable food.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Safety and Security</h3>
+                <p>Prioritize your safety while traveling. Research the safety conditions of your destination and avoid high-risk areas. Keep your valuables secure and be discreet with cash and expensive items.</p>
+                <p>Make copies of important documents like your passport, ID, and travel insurance. Store digital copies in a secure cloud service and keep physical copies separate from the originals. Leave a copy of your itinerary with family or friends at home.</p>
+                <p>Stay connected with loved ones back home through regular check-ins. Consider carrying a mobile phone with international coverage or purchasing a local SIM card upon arrival.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Pacing Your Journey</h3>
+                <p>Travel at a comfortable pace that allows for rest and relaxation. Avoid over-scheduling your days with too many activities. Build in downtime to recharge and enjoy spontaneous moments.</p>
+                <p>Consider group tours designed for seniors, which often provide a good balance of structured activities and free time. These tours also offer the benefit of traveling with like-minded individuals and having access to knowledgeable guides.</p>
+                <p>Listen to your body and don't push yourself too hard. It's better to see fewer attractions and enjoy them fully than to exhaust yourself trying to do too much.</p>
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Recommended Destinations</h3>
+                <p>Here are some destinations that are particularly well-suited for senior travelers:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>European River Cruises:</strong> Comfortable way to see multiple cities without constant packing and unpacking.</li>
+                    <li><strong>Japan:</strong> Excellent public transportation, safe environment, and respectful culture.</li>
+                    <li><strong>New Zealand:</strong> Stunning natural beauty, well-developed tourism infrastructure, and English-speaking.</li>
+                    <li><strong>Portugal:</strong> Affordable, welcoming, with a mild climate and rich history.</li>
+                    <li><strong>Canada:</strong> Diverse landscapes, safe cities, and excellent healthcare facilities.</li>
+                </ul>
+                <p>Remember that the best travel experiences are those that align with your personal interests and comfort level. Whether you prefer cultural immersion, nature exploration, or simply relaxing in beautiful surroundings, there's a perfect destination waiting for you.</p>
+                <p>Travel in your retirement years can be incredibly rewarding, offering opportunities for learning, growth, and creating lasting memories. With thoughtful planning and preparation, you can embark on adventures that enrich your life and broaden your horizons.</p>`,
+                category: "lifestyle",
+                date: "September 2025",
+                readTime: "8 min read",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        // DOM elements
+        const articlesContainer = document.getElementById('articles-container');
+        const articleDetail = document.getElementById('article-detail');
+        const detailTitle = document.getElementById('detail-title');
+        const detailImage = document.getElementById('detail-image');
+        const detailContent = document.getElementById('detail-content');
+        const backButton = document.getElementById('back-button');
+        const searchInput = document.getElementById('search-input');
+        const navTabs = document.querySelectorAll('.nav-tab');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notification-text');
+        const notificationClose = document.getElementById('notification-close');
+        const fontSizeToggle = document.getElementById('font-size-toggle');
+        const contrastToggle = document.getElementById('contrast-toggle');
+        const increaseFont = document.getElementById('increase-font');
+        const decreaseFont = document.getElementById('decrease-font');
+        const highContrast = document.getElementById('high-contrast');
+        const bookmarkBtn = document.getElementById('bookmark-btn');
+
+        // Initialize the app
+        function init() {
+            renderArticles(articles);
+            setupEventListeners();
+        }
+
+        // Render articles
+        function renderArticles(articlesToRender) {
+            articlesContainer.innerHTML = '';
+            
+            if (articlesToRender.length === 0) {
+                articlesContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; font-size: 18px;">No articles found. Try a different search or category.</p>';
+                return;
+            }
+            
+            articlesToRender.forEach(article => {
+                const articleCard = document.createElement('div');
+                articleCard.className = 'article-card';
+                articleCard.dataset.id = article.id;
+                articleCard.dataset.category = article.category;
+                
+                articleCard.innerHTML = `
+                    <img src="${article.image}" alt="${article.title}" class="article-image">
+                    <div class="article-content">
+                        <h3>${article.title}</h3>
+                        <p>${article.excerpt}</p>
+                        <div class="article-meta">
+                            <span>${article.date}</span>
+                            <span>${article.readTime}</span>
+                        </div>
+                    </div>
+                `;
+                
+                articleCard.addEventListener('click', () => showArticleDetail(article));
+                articlesContainer.appendChild(articleCard);
+            });
+        }
+
+        // Show article detail
+        function showArticleDetail(article) {
+            // Hide all articles first
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.style.display = 'none';
+            });
+            
+            // Hide featured article
+            document.querySelector('.featured-article').style.display = 'none';
+            
+            // Hide section title
+            document.querySelector('.section-title').style.display = 'none';
+            
+            // Set article detail content
+            detailTitle.textContent = article.title;
+            detailImage.src = article.image;
+            detailImage.alt = article.title;
+            detailContent.innerHTML = article.content;
+            
+            // Show article detail
+            articleDetail.style.display = 'block';
+            articleDetail.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Update URL without reloading the page
+            const url = new URL(window.location);
+            url.searchParams.set('article', article.id);
+            window.history.pushState({}, '', url);
+        }
+
+        // Hide article detail
+        function hideArticleDetail() {
+            // Show all articles
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.style.display = 'block';
+            });
+            
+            // Show featured article
+            document.querySelector('.featured-article').style.display = 'flex';
+            
+            // Show section title
+            document.querySelector('.section-title').style.display = 'flex';
+            
+            // Hide article detail
+            articleDetail.style.display = 'none';
+            articleDetail.classList.remove('active');
+            
+            // Update URL without reloading the page
+            const url = new URL(window.location);
+            url.searchParams.delete('article');
+            window.history.pushState({}, '', url);
+        }
+
+        // Filter articles by category
+        function filterByCategory(category) {
+            if (category === 'all') {
+                renderArticles(articles);
+            } else {
+                const filtered = articles.filter(article => article.category === category);
+                renderArticles(filtered);
+            }
+        }
+
+        // Search articles
+        function searchArticles(query) {
+            if (!query.trim()) {
+                renderArticles(articles);
+                return;
+            }
+            
+            const filtered = articles.filter(article => 
+                article.title.toLowerCase().includes(query.toLowerCase()) ||
+                article.excerpt.toLowerCase().includes(query.toLowerCase()) ||
+                article.content.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            renderArticles(filtered);
+        }
+
+        // Show notification
+        function showNotification(message) {
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Back button
+            backButton.addEventListener('click', hideArticleDetail);
+            
+            // Search functionality
+            searchInput.addEventListener('input', (e) => {
+                searchArticles(e.target.value);
+            });
+            
+            // Navigation tabs
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Filter articles by category
+                    filterByCategory(tab.dataset.category);
+                });
+            });
+            
+            // Notification close button
+            notificationClose.addEventListener('click', () => {
+                notification.classList.remove('show');
+            });
+            
+            // Accessibility controls
+            fontSizeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('large-text');
+                showNotification(document.body.classList.contains('large-text') 
+                    ? 'Text size increased' 
+                    : 'Text size reset to default');
+            });
+            
+            contrastToggle.addEventListener('click', () => {
+                document.body.classList.toggle('high-contrast');
+                showNotification(document.body.classList.contains('high-contrast') 
+                    ? 'High contrast mode enabled' 
+                    : 'High contrast mode disabled');
+            });
+            
+            increaseFont.addEventListener('click', () => {
+                const currentSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                document.documentElement.style.fontSize = `${currentSize + 2}px`;
+                showNotification('Text size increased');
+            });
+            
+            decreaseFont.addEventListener('click', () => {
+                const currentSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                if (currentSize > 14) {
+                    document.documentElement.style.fontSize = `${currentSize - 2}px`;
+                    showNotification('Text size decreased');
+                } else {
+                    showNotification('Minimum text size reached');
+                }
+            });
+            
+            highContrast.addEventListener('click', () => {
+                document.body.classList.toggle('high-contrast');
+                showNotification(document.body.classList.contains('high-contrast') 
+                    ? 'High contrast mode enabled' 
+                    : 'High contrast mode disabled');
+            });
+            
+            bookmarkBtn.addEventListener('click', () => {
+                showNotification('Bookmark feature coming soon!');
+            });
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const articleId = urlParams.get('article');
+                
+                if (articleId) {
+                    const article = articles.find(a => a.id == articleId);
+                    if (article) {
+                        showArticleDetail(article);
+                    }
+                } else {
+                    hideArticleDetail();
+                }
+            });
+            
+            // Check for article ID in URL on page load
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('article');
+            
+            if (articleId) {
+                const article = articles.find(a => a.id == articleId);
+                if (article) {
+                    showArticleDetail(article);
+                }
+            }
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
+
+

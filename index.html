@@ -227,6 +227,7 @@
         .article-content p {
             font-size: 16px;
             color: var(--light-text);
+            line-clamp: 3;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -499,6 +500,7 @@
         <div class="nav-tab" data-category="announcements">Announcements</div>
         <div class="nav-tab" data-category="letters">Letters</div>
         <div class="nav-tab" data-category="lifestyle">Lifestyle</div>
+        <a class="nav-tab" href="v2.html" aria-label="Version 2">V2</a>
     </div>
 
     <!-- Main Content -->
@@ -944,8 +946,9 @@
                 searchArticles(e.target.value);
             });
             
-            // Navigation tabs
+            // Navigation tabs (only those that have a category)
             navTabs.forEach(tab => {
+                if (!tab.dataset.category) return;
                 tab.addEventListener('click', () => {
                     // Remove active class from all tabs
                     navTabs.forEach(t => t.classList.remove('active'));

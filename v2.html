@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onPension Newsletter - September 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for the modal content */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Hide scrollbar when modal is not visible */
+        .hidden {
+            display: none;
+        }
+    </style>
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:title" content="onPension Newsletter - September 2025">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="v2.html">
+    <meta property="og:image" content="https://placehold.co/1200x630/34D399/FFFFFF?text=onPension+Sept+2025">
+    <meta property="og:description" content="The Nedgroup Pensioners' Newsletter | September 2025">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold text-gray-900">onPension</h1>
+            <p class="text-lg text-gray-500 mt-1">The Nedgroup Pensioners' Newsletter | September 2025</p>
+        </div>
+    </header>
+
+    <!-- Main Content: Article Cards -->
+    <main>
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+            <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for reading full article -->
+    <div id="article-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-full max-h-[90vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-gray-800"></h2>
+                <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800 transition-colors" aria-label="Close">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <!-- Modal Content -->
+            <div id="modal-content" class="modal-content p-6 md:p-8 overflow-y-auto flex-grow">
+                <!-- Full article content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA: All newsletter articles ---
+        const articles = [
+            {
+                title: "He Walked from Cape to Cairo",
+                imageSrc: "https://placehold.co/600x400/34D399/FFFFFF?text=Explorer",
+                altText: "Ewart Scott Grogan",
+                snippet: "The astounding achievement of Ewart Scott Grogan, the first person in recorded history to walk the entire length of Africa.",
+                fullContent: `
+                    <img src="https://placehold.co/600x300/A78BFA/FFFFFF?text=Ewart+Scott+Grogan" alt="Ewart Scott Grogan portraits" class="w-full rounded-lg mb-6 shadow">
+                    <p class="mb-4 text-lg text-gray-600">Cecil John Rhodes had a dream of constructing a railway from Cape to Cairo, but he was unsuccessful. However an even more astounding achievement was by Ewart Scott Grogan, (Born 12-12-1874 London - Died 16-8-1967 Cape Town) an English explorer, politician and entrepreneur who was the first person in recorded history to walk the length of Africa, from Cape Town to Cairo.</p>
+                    <p class="mb-4 text-lg text-gray-600">While up at Cambridge, he fell in love with Gertrude Watt, but her stepfather disapproved of the match. He proposed becoming the first man to make the Cape-to-Cairo journey; the stepfather agreed this would be a suitable test of his character and seriousness.</p>
+                    <img src="https://placehold.co/600x400/FBBF24/FFFFFF?text=Grogan's+Route" alt="Cape to Cairo Map" class="w-full rounded-lg my-6 shadow">
+                    <p class="mb-4 text-lg text-gray-600">During his travels, Grogan had been stalked by lions, hippopotamuses and crocodiles; pursued by head hunters and cannibals; and plagued by parasites and fevers. He returned home a popular sensation. He was made a Fellow of the Royal Geographical Society and met Queen Victoria.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Letter from Cecil John Rhodes</h3>
+                    <div class="border-l-4 border-gray-200 pl-4 italic text-gray-500">
+                        <p class="mb-4">"I must say I envy you, for you have done that which has been for centuries the ambition of every explorer, namely, to walk through Africa from South to North. The amusement of the whole thing is that a youth from Cambridge during his vacation should have succeeded in doing that which the ponderous explorers of the world have failed to accomplish..."</p>
+                        <p><strong>- C.J. RHODES</strong></p>
+                    </div>
+                `
+            },
+            {
+                title: "Doreen Saayman's 100th Birthday",
+                imageSrc: "https://placehold.co/600x400/60A5FA/FFFFFF?text=100+Years",
+                altText: "Doreen Saayman",
+                snippet: "Doreen 'Ouma Dora' Saayman, widow of Nedbanker Albie Saayman, celebrated her 100th Birthday on 25 June 2025.",
+                fullContent: `
+                    <img src="https://placehold.co/600x400/60A5FA/FFFFFF?text=Doreen+Saayman" alt="Doreen Saayman" class="w-full rounded-lg mb-6 shadow">
+                    <p class="mb-4 text-lg text-gray-600">Doreen 'Ouma Dora' Saayman, widow of Nedbanker Albie Saayman, and a resident in a retirement village in Gordons Bay, Western Cape, celebrated her 100th Birthday on 25 June 2025 with a group of friends with a lunch at a Western Cape wine farm.</p>
+                    <p class="mb-4 text-lg text-gray-600">Albie Saayman was instrumental in computerising the Netherlands Bank and headed the computer division of Nedbank [Nedacom]. Former work colleagues recall with affection how Doreen would prepare home cooked meals for the Nedacom staff when they worked double shifts.</p>
+                    <p class="mb-4 text-lg text-gray-600">Her secret to her health and amazing age—she only hung up her car keys at the age of 99—is no smoking or drinking, eating healthy food, and her overarching philosophy is to Live to Give and not Live to Receive.</p>
+                `
+            },
+            {
+                title: "A Letter Delivered After a Crash",
+                imageSrc: "https://placehold.co/600x400/F87171/FFFFFF?text=Air+Crash",
+                altText: "Lufthansa plane",
+                snippet: "A strange coincidence: a letter that survived the horrific 1974 Lufthansa Boeing 747 crash in Nairobi.",
+                fullContent: `
+                    <img src="https://placehold.co/600x300/F87171/FFFFFF?text=Lufthansa+747" alt="Lufthansa plane" class="w-full rounded-lg mb-6 shadow">
+                    <p class="mb-4 text-lg text-gray-600">A strange coincidence as told by Ben Fourie - Accountant in 1974 at Nedbank Kroonstad. Our clients Ditberners Floor Tile Industries imported tiles from Germany. We normally paid the supplier on receipt of the original documents but we never received them and eventually paid on receipt of duplicate documents.</p>
+                    <img src="https://placehold.co/600x400/FB923C/FFFFFF?text=Recovered+Letter" alt="Lufthansa letter" class="w-full rounded-lg my-6 shadow">
+                    <p class="mb-4 text-lg text-gray-600">After 3 months we received this Registered Airmail envelope in the mail which had survived a horrific Nairobi crash of Lufthansa Boeing 747-130 with the loss of 59 passengers. I have kept it since then as it has a rubber stamp "Retrieved from air crash on 20 November 1974 at Nairobi" on the face of it.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Probable Cause</h3>
+                    <p class="mb-4 text-lg text-gray-600">"The accident was caused by the crew initiating a take-off with the leading edge flaps retracted because the pneumatic system which operates them had not been switched on. This resulted in the aircraft becoming airborne in a partially stalled condition which the pilots did not identify in the short time available to them for recovery."</p>
+                `
+            },
+            {
+                title: "The Story of Jock of the Bushveld",
+                imageSrc: "https://placehold.co/600x400/FBBF24/FFFFFF?text=Jock",
+                altText: "Jock of the Bushveld",
+                snippet: "A look into the life of Sir Percy FitzPatrick and the true story behind the beloved South African classic.",
+                fullContent: `
+                    <img src="https://placehold.co/600x300/FBBF24/FFFFFF?text=Jock+of+the+Bushveld" alt="Jock book cover" class="w-full rounded-lg mb-6 shadow">
+                    <p class="mb-4 text-lg text-gray-600">Sir Percy FitzPatrick's adventures during his time pioneering in the Bushveld are vividly described in his book 'Jock of the Bushveld', which is generally accepted as a South African classic.</p>
+                    <p class="mb-4 text-lg text-gray-600">In the early 1900s, he used to recount the adventures of his dog 'Jock' (a Staffordshire Bullterrier cross), in the form of bedtime stories to his four children. Rudyard Kipling, an intimate friend, used to take part in these story-telling evenings and it was he who persuaded FitzPatrick to put the stories together in book form.</p>
+                    <p class="mb-4 text-lg text-gray-600">The book, which appeared in 1907 for the first time, was an immediate and overwhelming success, being reprinted four times in that year. His name lives on through 'Jock of the Bushveld'.</p>
+                `
+            },
+            {
+                title: "A Look Back at the Year 1912",
+                imageSrc: "https://placehold.co/600x400/A78BFA/FFFFFF?text=1912",
+                altText: "The Year 1912",
+                snippet: "Highlighting significant world events, from the sinking of the Titanic to the formation of the ANC.",
+                fullContent: `
+                    <img src="https://placehold.co/600x300/4F46E5/FFFFFF?text=Titanic" alt="Titanic wreck" class="w-full rounded-lg mb-6 shadow">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Significant World Events of 1912</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
+                        <li><strong>Jan 8:</strong> The African National Congress is formed in Bloemfontein.</li>
+                        <li><strong>Apr 14:</strong> The RMS Titanic hits an iceberg and sinks, claiming over 1,500 lives.</li>
+                        <li><strong>Apr 16:</strong> Harriet Quimby becomes the first female pilot to fly across the English Channel.</li>
+                        <li><strong>Dec 18:</strong> The 'Piltdown Man' is discovered, which would later be revealed as one of the greatest scientific hoaxes in history.</li>
+                    </ul>
+                    <img src="https://placehold.co/600x300/EC4899/FFFFFF?text=Scott's+Expedition" alt="Scott expedition" class="w-full rounded-lg my-6 shadow">
+                    <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Born in 1912</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
+                        <li><strong>Alan Turing:</strong> English mathematician and computer scientist, crucial to cracking the Enigma code.</li>
+                        <li><strong>Wernher von Braun:</strong> German-American rocket scientist who was a key figure in developing the rockets for the Apollo moon missions.</li>
+                        <li><strong>Chuck Jones:</strong> American animator and cartoonist, famous for his work on Looney Tunes characters like Bugs Bunny and Daffy Duck.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Crime & Editorial",
+                imageSrc: "https://placehold.co/600x400/4B5563/FFFFFF?text=Alert",
+                altText: "Crime Alert",
+                snippet: "A warning from the Editor about phishing scams and important policy updates for the newsletter.",
+                fullContent: `
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Crime Alert</h3>
+                    <p class="mb-4 text-lg text-gray-600">The Editor continues to receive unsolicited e-mails advising that urgent parcels cannot be delivered by a courier before payment of a fee. The dead giveaway is that he is instructed to confirm Banking details.</p>
+                    <p class="mb-4 text-lg text-gray-600">Please heed Nedbank's warnings received on your Money App and don't fall victim to these types of scammers. Also, beware of calls from your Cell Phone Service Provider enquiring whether you have initiated a request for a sim card swap. Do NOT respond to unsolicited scare tactics.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Important Announcement</h3>
+                    <p class="mb-4 text-lg text-gray-600">It is with regret that readers of the Paper Hard Copy of "On Pension magazine" will no longer receive a printed copy after this edition. This has been decided in view of the very few readers who still do not receive an Electronic Copy by e-mail and the escalating costs to produce Paper Editions.</p>
+                `
+            }
+        ];
+
+        // --- DOM Elements ---
+        const articlesGrid = document.getElementById('articles-grid');
+        const modal = document.getElementById('article-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        // --- Functions ---
+
+        /**
+         * Creates and displays the article cards on the page.
+         */
+        function displayArticles() {
+            articlesGrid.innerHTML = ''; // Clear existing articles
+            articles.forEach((article, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col';
+                card.dataset.index = index; // Store index to retrieve full content later
+
+                card.innerHTML = `
+                    <img class="h-56 w-full object-cover" src="${article.imageSrc}" alt="${article.altText}">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">${article.title}</h3>
+                        <p class="text-gray-600 flex-grow">${article.snippet}</p>
+                        <div class="mt-4">
+                            <span class="text-blue-600 font-semibold hover:text-blue-800">Read More &rarr;</span>
+                        </div>
+                    </div>
+                `;
+                articlesGrid.appendChild(card);
+            });
+        }
+
+        /**
+         * Opens the modal and displays the full article content.
+         * @param {number} index - The index of the article in the `articles` array.
+         */
+        function openModal(index) {
+            const article = articles[index];
+            modalTitle.textContent = article.title;
+            modalContent.innerHTML = article.fullContent;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        /**
+         * Closes the article modal.
+         */
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore background scrolling
+        }
+
+        // --- Event Listeners ---
+
+        // Event listener for clicking on an article card
+        articlesGrid.addEventListener('click', (e) => {
+            const card = e.target.closest('.cursor-pointer');
+            if (card && card.dataset.index) {
+                openModal(parseInt(card.dataset.index));
+            }
+        });
+
+        // Event listeners for closing the modal
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            // Close modal if the outer background is clicked
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Close modal with the Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // --- Initial Load ---
+        displayArticles();
+
+    </script>
+</body>
+</html>
+
+
